@@ -1,0 +1,36 @@
+export DOTFILES="$HOME/dotfiles"
+
+precmd(){
+  source $HOME/.aliases
+  source $HOME/.exports
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    source "$HOME/.kube/load-k8s-config.sh"
+  fi
+}
+
+
+ZIM_HOME=$HOME/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
+
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  source "$DOTFILES/linux/.ext_exports"
+  source "$DOTFILES/linux/.micromamba"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  source "$DOTFILES/macos/.ext_exports"
+  source "$DOTFILES/macos/.micromamba"
+else
+  echo "No ext exports for this platform"
+fi
+
+source ${ZIM_HOME}/init.zsh
+
+eval "$(starship init zsh)"
+

@@ -1,0 +1,6 @@
+config/nvim/lazy-lock.json
+macos/Brewfile.lock.json
+**/.DS_Store
+**/.log
+.DS_Store
+.log

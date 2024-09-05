@@ -1,0 +1,6 @@
+function getpass(){
+  # if ! test -z "$(rbw unlocked)"; then
+  #       rbw unlock
+  # fi
+  rbw unlock && rbw get "$(rbw list | fzf)" --clipboard
+}

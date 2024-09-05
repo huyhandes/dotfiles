@@ -1,0 +1,12 @@
+git
+vim
+curl
+zip
+unzip
+eza
+htop
+tldr
+iperf3
+tmux
+fd-find
+ripgrep

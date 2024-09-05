@@ -1,0 +1,9 @@
+export PATH="$HOME/opt/nvim-linux64/bin:$PATH"
+export PATH="$HOME/opt/bat:$PATH"
+export JAVA_HOME=/shared/huybq/opt/jdk-17.0.2
+export SPARK_HOME=/shared/huybq/opt/spark-3.5.1-bin-hadoop3
+export MAVEN_HOME=/shared/huybq/opt/apache-maven-3.9.4
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$SPARK_HOME/bin:$PATH
+export PATH=$MAVEN_HOME/bin:$PATH
+export PATH="/shared/huybq/bin:$PATH"

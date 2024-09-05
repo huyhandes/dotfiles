@@ -1,0 +1,3 @@
+0xB1 : skhd -k "cmd - space"
+0xB0 : skhd -k "cmd + shift - m"
+

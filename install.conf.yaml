@@ -1,0 +1,37 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+- clean: 
+    ~/.config:
+      recursive: true
+- link:
+    ~/.oh-my-zsh/custom/plugins/:
+      path: shell/oh-my-zsh-custom/*
+      glob: true
+      create: true
+      relink: true
+    ~/.config/:
+      path: config/*
+      glob: true
+      create: true
+      relink: true
+    ~/.tmux/plugins/tmux/custom:
+      path: shell/tmux-custom/*
+      glob: true
+      create: true
+      relink: true
+    ~/.zshrc: shell/.zshrc
+    # ~/.zimrc: shell/.zimrc
+    ~/.aliases: shell/.aliases
+    ~/.exports: shell/.exports
+    ~/.functions: shell/.functions
+      #~/.p10k.zsh: shell/.p10k.zsh
+    ~/.config/rclone:
+      if: '[ `uname` = Darwin ]'
+      path: ~/Documents/rclone
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [bat cache --build, Build bat cache]
