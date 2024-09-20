@@ -1,6 +1,10 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+-- SSH Multiplexing
+local ssh_config = require("ssh")
+ssh_config.apply_to_config(config)
+
 -- Color theme
 
 config.color_scheme = "Catppuccin Mocha"

@@ -68,6 +68,11 @@ function keymap_config.apply_to_config(config)
 			mods = "CTRL",
 			action = wezterm.action.ActivatePaneDirection("Down"),
 		},
+		{
+			key = "7",
+			mods = "CMD|SHIFT",
+			action = wezterm.action.AttachDomain("ai17"),
+		},
 	}
 end
 
