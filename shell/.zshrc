@@ -8,6 +8,7 @@
 precmd(){
   source $HOME/.aliases
   source $HOME/.exports
+  source $HOME/.functions
   if [[ "$OSTYPE" == "darwin"* ]]; then
     source "$HOME/.kube/load-k8s-config.sh"
   elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -152,4 +153,3 @@ fi
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # source $HOME/.iterm2_shell_integration.zsh
 eval "$(starship init zsh)"
-if [ -f "/Users/huybui/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/huybui/.config/fabric/fabric-bootstrap.inc"; fi

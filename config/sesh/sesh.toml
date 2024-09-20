@@ -1,0 +1,24 @@
+[[session]]
+name = "Downloads 📥"
+path = "~/Downloads"
+startup_command = "ls"
+
+[[session]]
+name = "ai15"
+path = "/tmp/ai15"
+startup_command = "ssh ai.server.15"
+
+[[session]]
+name = "ai16"
+path = "~/Downloads/tmp/ai16"
+startup_command = "ssh ai.server.16"
+
+[[session]]
+name = "ai17"
+path = "/tmp/ai17"
+startup_command = "ssh ai.server.17"
+
+[[session]]
+name = "ai18"
+path = "~/Downloads/tmp/ai18"
+startup_command = "ssh ai.server.18"
