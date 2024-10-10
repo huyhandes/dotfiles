@@ -15,6 +15,7 @@ precmd(){
     source "$DOTFILES/linux/.ext_aliases"
   fi
   typeset -U path
+  typeset -U fpath
 }
 
 # If you come from bash you might have to change your $PATH.
@@ -149,7 +150,8 @@ fi
 if test -d "$HOME/opt/rye"; then
   source "$HOME/opt/rye/env"
 fi
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# source $HOME/.iterm2_shell_integration.zsh
+typeset -U path
+typeset -U fpath
+autoload -Uz compinit
+compinit
 eval "$(starship init zsh)"
