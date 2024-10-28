@@ -8,7 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
   /bin/bash macos/install.sh
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+elif [[ "$OSTYPE" =~ ^linux ]]; then
   /bin/bash linux/install.sh
 else
   echo "This script only works on macOS and linux!"
@@ -25,8 +25,4 @@ if test ! -d $HOME/.tmux/plugins/tpm; then
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
-# Add rye python package manager
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  curl -sSf https://rye.astral.sh/get | bash
-fi
 

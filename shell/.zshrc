@@ -11,7 +11,7 @@ precmd(){
   source $HOME/.functions
   if [[ "$OSTYPE" == "darwin"* ]]; then
     source "$HOME/.kube/load-k8s-config.sh"
-  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  elif [[ "$OSTYPE" =~ ^linux ]]; then
     source "$DOTFILES/linux/.ext_aliases"
   fi
   typeset -U path
@@ -135,9 +135,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases
-fsh-alias XDG:catppuccin-macchiato -q
+# fsh-alias XDG:catppuccin-macchiato -q
 source $HOME/.functions
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ "$OSTYPE" =~ ^linux ]]; then
   source "$DOTFILES/linux/.ext_exports"
   source "$DOTFILES/linux/.micromamba"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
