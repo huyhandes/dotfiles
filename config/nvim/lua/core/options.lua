@@ -1,5 +1,5 @@
 local opt = vim.opt -- for conciseness
-
+local opt_local = vim.opt_local
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
@@ -40,3 +40,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- conceallevel
+opt_local.conceallevel = 1
