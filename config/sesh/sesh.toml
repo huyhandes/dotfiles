@@ -1,24 +1,24 @@
 [[session]]
 name = "Downloads 📥"
 path = "~/Downloads"
-startup_command = "ls"
+startup_command = "ll"
 
 [[session]]
-name = "ai15"
-path = "/tmp/ai15"
-startup_command = "ssh ai.server.15"
+name = "Documents 📝"
+path = "~/Documents"
+startup_command = "ll"
 
 [[session]]
-name = "ai16"
-path = "~/Downloads/tmp/ai16"
-startup_command = "ssh ai.server.16"
+name = "vpn"
+path = "~"
+startup_command = "vpn"
 
 [[session]]
-name = "ai17"
-path = "/tmp/ai17"
-startup_command = "ssh ai.server.17"
+name = "sesh-config"
+path = "~/.config/sesh"
+startup_command = "nvim sesh.toml"
 
 [[session]]
-name = "ai18"
-path = "~/Downloads/tmp/ai18"
-startup_command = "ssh ai.server.18"
+name = "ObsidianNotes"
+path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Handes"
+startup_command = "nvim 'Entry Notes.md'"
