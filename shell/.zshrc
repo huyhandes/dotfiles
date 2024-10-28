@@ -103,7 +103,6 @@ plugins=(
         zsh-interactive-cd
         zsh-navigation-tools
         you-should-use 
-        rye
       )
 export ZSH_CUSTOM="$ZSH/custom"
 #export ZSH_DISABLE_COMPFIX = true

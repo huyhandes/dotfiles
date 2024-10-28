@@ -1,8 +1,9 @@
 #!/bin/bash
 
-## Install fzf - require root
-if test ! -f $LOCAL_BIN/eza; then
-  EZA_VERSION="0.20.0"
+## Install eza
+EZA_VERSION="0.20.5"
+
+if test ! -f $LOCAL_BIN/eza || [ $(eza --version | sed -n '2p' | cut -d ' ' -f 1 | tr -d 'v') != $EZA_VERSION ]; then
   wget "https://github.com/eza-community/eza/releases/download/v$EZA_VERSION/eza_x86_64-unknown-linux-musl.tar.gz" -O tmp
   tar xf tmp
 
