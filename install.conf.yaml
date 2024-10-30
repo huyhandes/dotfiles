@@ -18,11 +18,6 @@
       glob: true
       create: true
       relink: true
-    ~/.tmux/plugins/tmux/custom:
-      path: shell/tmux-custom/*
-      glob: true
-      create: true
-      relink: true
     ~/.zshrc: shell/.zshrc
     # ~/.zimrc: shell/.zimrc
     ~/.aliases: shell/.aliases
