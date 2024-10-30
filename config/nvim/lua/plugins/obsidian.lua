@@ -27,5 +27,7 @@ return {
         path = vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/Handes",
       },
     },
+    notes_subdir = "6 - Zettelkasten",
+    new_notes_localtion = "notes_subdir",
   },
 }
