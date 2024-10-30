@@ -1,7 +1,8 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    "hrsh7th/cmp-buffer",
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
   },
   event = { "InsertEnter", "CmdlineEnter" },
   opts = function(_, opts)
@@ -18,6 +19,7 @@ return {
       sources = {
         { name = "nvim_lsp" },
         { name = "buffer" },
+        { name = "path" },
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),

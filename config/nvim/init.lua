@@ -14,3 +14,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } })
+
+vim.cmd([[
+  augroup LspAutocmds
+    autocmd!
+    autocmd VimLeavePre * lua vim.lsp.stop_client(vim.lsp.get_active_clients())
+  augroup END
+]])
