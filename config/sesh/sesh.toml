@@ -9,11 +9,6 @@ path = "~/Documents"
 startup_command = "ll"
 
 [[session]]
-name = "vpn"
-path = "~"
-startup_command = "vpn"
-
-[[session]]
 name = "sesh-config"
 path = "~/.config/sesh"
 startup_command = "nvim sesh.toml"
