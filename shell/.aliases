@@ -1,10 +1,4 @@
-alias ocat="/bin/cat"
-alias cat=bat
-alias vim=nvim
-alias cd=z
 alias vpn="sudo openfortivpn"
 alias docker-compose="docker compose"
 alias mamba=micromamba
 alias conda=micromamba
-alias jq=jaq
-alias genpass="rbw gen 16 | pbcopy"
