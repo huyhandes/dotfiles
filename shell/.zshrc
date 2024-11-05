@@ -101,7 +101,6 @@ plugins=(
         zsh-eza
         fast-syntax-highlighting
         zsh-interactive-cd
-        zsh-navigation-tools
         you-should-use 
       )
 export ZSH_CUSTOM="$ZSH/custom"
