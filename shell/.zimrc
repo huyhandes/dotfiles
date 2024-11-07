@@ -1,18 +1,14 @@
-zmodule catppuccin/zsh-syntax-highlighting -n catppuccin-syntax --source themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
-zmodule kiesman99/zim-zoxide
+zmodule completion
 zmodule exa
 zmodule input
 zmodule environment
 zmodule fzf
-zmodule joke/zim-kubectl
-zmodule MichaelAquilina/zsh-you-should-use --source you-should-use.plugin.zsh
+
 zmodule ohmyzsh/ohmyzsh --root plugins/git
 zmodule ohmyzsh/ohmyzsh --root plugins/colored-man-pages
 zmodule ohmyzsh/ohmyzsh --root plugins/command-not-found
-zmodule ohmyzsh/ohmyzsh --root plugins/zsh-navigation-tools
-
-
-zmodule completion
-
-zmodule Aloxaf/fzf-tab
-zmodule zsh-users/zsh-syntax-highlighting
+zmodule ohmyzsh/ohmyzsh --root plugins/fzf
+zmodule Aloxaf/fzf-tab --source fzf-tab.plugin.zsh
+zmodule ohmyzsh/ohmyzsh --root plugins/zoxide
+zmodule MichaelAquilina/zsh-you-should-use
+zmodule zdharma-continuum/fast-syntax-highlighting

@@ -1,5 +1,0 @@
-eza
-tldr
-iperf3
-fd-find
-ripgrep

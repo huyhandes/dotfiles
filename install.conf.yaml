@@ -19,7 +19,7 @@
       create: true
       relink: true
     ~/.zshrc: shell/.zshrc
-    # ~/.zimrc: shell/.zimrc
+    ~/.zimrc: shell/.zimrc
     ~/.aliases: shell/.aliases
     ~/.exports: shell/.exports
     ~/.functions: shell/.functions
