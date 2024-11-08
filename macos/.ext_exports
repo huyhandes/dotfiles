@@ -1,3 +1,2 @@
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export FZF_DEFAULT_OPTS="--tmux center,90%,50%"
 export CONFIG="$HOME/.config/espanso"
