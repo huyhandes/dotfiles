@@ -2,21 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
   ignore = dirty
-[submodule "shell/oh-my-zsh-custom/you-should-use"]
-	path = shell/oh-my-zsh-custom/you-should-use
-	url = https://github.com/MichaelAquilina/zsh-you-should-use.git
-[submodule "shell/oh-my-zsh-custom/fzf-tab"]
-	path = shell/oh-my-zsh-custom/fzf-tab
-	url = https://github.com/Aloxaf/fzf-tab
-[submodule "shell/oh-my-zsh-custom/zsh-eza"]
-	path = shell/oh-my-zsh-custom/zsh-eza
-	url = https://github.com/z-shell/zsh-eza
 [submodule "config/bat"]
 	path = config/bat
 	url = https://github.com/catppuccin/bat.git
-[submodule "config/alacritty/themes"]
-	path = config/alacritty/themes
-	url = https://github.com/alacritty/alacritty-theme
-[submodule "shell/oh-my-zsh-custom/fast-syntax-highlighting"]
-	path = shell/oh-my-zsh-custom/fast-syntax-highlighting
-	url = git@github.com:zdharma-continuum/fast-syntax-highlighting.git
