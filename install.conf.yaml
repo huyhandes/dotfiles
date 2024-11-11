@@ -13,9 +13,6 @@
       glob: true
       create: true
       relink: true
-      if: '[ `uname` = Linux ]'
-      exclude:
-        - config/nvim/lua/plugins/obsidian.nvim
     ~/.zshrc: shell/.zshrc
     ~/.zimrc: shell/.zimrc
     ~/.aliases: shell/.aliases
