@@ -1,12 +1,12 @@
 [[session]]
 name = "Downloads 📥"
 path = "~/Downloads"
-startup_command = "ll"
+startup_command = "fastfetch"
 
 [[session]]
 name = "Documents 📝"
 path = "~/Documents"
-startup_command = "ll"
+startup_command = "fastfetch"
 
 [[session]]
 name = "sesh-config"
@@ -17,3 +17,17 @@ startup_command = "nvim sesh.toml"
 name = "ObsidianNotes"
 path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Handes"
 startup_command = "nvim 'Entry Notes.md'"
+
+[[session]]
+name = "nvim"
+path = "~/.config/nvim"
+startup_command = "nvim init.lua"
+
+[[session]]
+name = "default"
+path = "~"
+
+[[session]]
+name = "spotify"
+path = "~"
+startup_command = "spotify-player"

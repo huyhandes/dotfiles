@@ -30,7 +30,8 @@ source $HOME/.exports
 source $HOME/.functions
 
 if [[ "$OSTYPE" =~ ^linux ]]; then
-  source "$DOTFILES/linux/.ext_exports"
+  echo "External Export Temporary shutdown"
+  # source "$DOTFILES/linux/.ext_exports"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   source "$DOTFILES/macos/.ext_exports"
   source "$HOME/.kube/load-k8s-config.sh"
