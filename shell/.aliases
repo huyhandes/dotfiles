@@ -1,4 +1,5 @@
 alias vpn="sudo openfortivpn"
-alias docker-compose="docker compose"
+alias dpsa="docker ps -a"
+alias drmi="docker rmi"
 alias mamba=micromamba
 alias conda=micromamba
