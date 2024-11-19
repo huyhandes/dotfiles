@@ -12,4 +12,3 @@ zmodule Aloxaf/fzf-tab --source fzf-tab.plugin.zsh
 zmodule ohmyzsh/ohmyzsh --root plugins/zoxide
 zmodule MichaelAquilina/zsh-you-should-use
 zmodule zdharma-continuum/fast-syntax-highlighting
-zmodule jeffreytse/zsh-vi-mode
