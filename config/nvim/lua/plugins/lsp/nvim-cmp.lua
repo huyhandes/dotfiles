@@ -13,6 +13,34 @@ return {
     })
   end,
   config = function()
+    local kind_icons = {
+      Text = "",
+      Method = "󰆧",
+      Function = "󰊕",
+      Constructor = "",
+      Field = "󰇽",
+      Variable = "󰂡",
+      Class = "󰠱",
+      Interface = "",
+      Module = "",
+      Property = "󰜢",
+      Unit = "",
+      Value = "󰎠",
+      Enum = "",
+      Keyword = "󰌋",
+      Snippet = "",
+      Color = "󰏘",
+      File = "󰈙",
+      Reference = "",
+      Folder = "󰉋",
+      EnumMember = "",
+      Constant = "󰏿",
+      Struct = "",
+      Event = "",
+      Operator = "󰆕",
+      TypeParameter = "󰅲",
+    }
+
     local cmp = require("cmp")
 
     cmp.setup({
@@ -20,6 +48,10 @@ return {
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "path" },
+        { name = "minuet" },
+      },
+      performance = {
+        fetching_timeout = 2000,
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -42,6 +74,19 @@ return {
       snippet = {
         expand = function(args)
           vim.snippet.expand(args.body)
+        end,
+      },
+      formatting = {
+        fields = { "kind", "abbr", "menu" },
+        expandable_indicator = true,
+        format = function(entry, vim_item)
+          -- Kind icons
+          vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+          -- Source
+          vim_item.menu = ({
+            minuet = "󱗻",
+          })[entry.source.name]
+          return vim_item
         end,
       },
     })
