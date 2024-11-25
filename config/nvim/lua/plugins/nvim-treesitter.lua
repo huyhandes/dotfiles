@@ -12,6 +12,8 @@ return {
         "vim",
         "lua",
         "c",
+        "glimmer_javascript",
+        "glimmer_typescript",
 
         "markdown",
         "json",
