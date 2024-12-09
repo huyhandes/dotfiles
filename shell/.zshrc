@@ -27,7 +27,6 @@ fi
 
 source $HOME/.aliases
 source $HOME/.exports
-source $HOME/.functions
 
 if [[ "$OSTYPE" =~ ^linux ]]; then
   echo "External Export Temporary shutdown"
