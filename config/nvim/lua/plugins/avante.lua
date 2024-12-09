@@ -6,7 +6,7 @@ return {
   opts = {
     provider = "openai",
     openai = {
-      endpoint = "https://glhf.chat/api/openai/v1",
+      endpoint = os.getenv("OPENAI_API_URL"),
       model = "hf:Qwen/Qwen2.5-Coder-32B-Instruct",
       temperature = 0,
     },

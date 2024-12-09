@@ -8,7 +8,7 @@ return {
         provider_options = {
           openai_fim_compatible = {
             model = "qwen2.5-coder:1.5b",
-            end_point = "http://localhost:11434/v1/completions",
+            end_point = os.getenv("OLLAMA_API_URL") .. "/completions",
             api_key = "OLLAMA_API_KEY",
             name = "Ollama",
             stream = true,
