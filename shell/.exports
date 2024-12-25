@@ -20,3 +20,4 @@ export LOCAL_SHARE="$HOME/.local/share"
 export PATH="$HOME/.local/bin:$PATH"
 export FPATH="$LOCAL_SHARE/zsh-completion/completions:$FPATH"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export EDITOR=nvim

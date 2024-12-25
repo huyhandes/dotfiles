@@ -9,6 +9,7 @@ return {
         transparent_background = true,
       })
       vim.cmd.colorscheme("catppuccin-macchiato")
+      vim.opt.colorcolumn = "89"
     end,
   },
 }

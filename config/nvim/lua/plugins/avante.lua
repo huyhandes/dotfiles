@@ -4,11 +4,9 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    provider = "openai",
-    openai = {
-      endpoint = os.getenv("OPENAI_API_URL"),
-      model = "hf:Qwen/Qwen2.5-Coder-32B-Instruct",
-      temperature = 0,
+    provider = "gemini",
+    gemini = {
+      model = "gemini-2.0-flash-exp",
     },
   },
   build = "make",
