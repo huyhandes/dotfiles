@@ -1,7 +1,11 @@
 return {
   "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
-  dependencies = "rafamadriz/friendly-snippets",
+  dependencies = {
+    { "saghen/blink.compat", optional = false, version = "*" },
+    { "rafamadriz/friendly-snippets" },
+    { "cstrap/python-snippets" },
+  },
 
   -- use a release tag to download pre-built binaries
   version = "*",
@@ -18,14 +22,36 @@ return {
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     -- See the full "keymap" documentation for information on defining your own keymap.
     keymap = {
-      preset = "default",
-      ["<A-y>"] = {
-        function(cmp)
-          cmp.show({ providers = { "minuet" } })
-        end,
+      preset = "enter",
+      -- ["<Tab>"] = {
+      --   function(cmp)
+      --     cmp.show({ providers = { "minuet" } })
+      --   end,
+      -- },
+    },
+    completion = {
+      list = {
+        selection = "manual",
+      },
+      menu = {
+        draw = {
+          components = {
+            kind_icon = {
+              ellipsis = false,
+              text = function(ctx)
+                local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+                return kind_icon
+              end,
+              -- Optionally, you may also use the highlights from mini.icons
+              highlight = function(ctx)
+                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                return hl
+              end,
+            },
+          },
+        },
       },
     },
-
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
       -- Useful for when your theme doesn't support blink.cmp
@@ -33,18 +59,46 @@ return {
       use_nvim_cmp_as_default = true,
       -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
-      nerd_font_variant = "mono",
+      nerd_font_variant = "normal",
     },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
+
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "minuet" },
+      default = {
+        "lsp",
+        "path",
+        "snippets",
+        "buffer",
+        "minuet",
+        "avante_commands",
+        "avante_mentions",
+        "avante_files",
+      },
       providers = {
         minuet = {
           name = "minuet",
           module = "minuet.blink",
           score_offset = 8, -- Gives minuet higher priority among suggestions
+        },
+        avante_commands = {
+          name = "avante_commands",
+          module = "blink.compat.source",
+          score_offset = 90, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_files = {
+          name = "avante_commands",
+          module = "blink.compat.source",
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_mentions = {
+          name = "avante_mentions",
+          module = "blink.compat.source",
+          score_offset = 1000, -- show at a higher priority than lsp
+          opts = {},
         },
       },
     },

@@ -3,10 +3,11 @@ zmodule exa
 zmodule input
 zmodule environment
 zmodule fzf
-
+zmodule k
 zmodule ohmyzsh/ohmyzsh --root plugins/git
 zmodule ohmyzsh/ohmyzsh --root plugins/colored-man-pages
 zmodule ohmyzsh/ohmyzsh --root plugins/command-not-found
+zmodule ohmyzsh/ohmyzsh --root plugins/docker
 zmodule ohmyzsh/ohmyzsh --root plugins/docker-compose
 zmodule Aloxaf/fzf-tab --source fzf-tab.plugin.zsh
 zmodule ohmyzsh/ohmyzsh --root plugins/zoxide

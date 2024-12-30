@@ -8,6 +8,12 @@ return {
     gemini = {
       model = "gemini-2.0-flash-exp",
     },
+    file_selector = {
+      --- @alias FileSelectorProvider "native" | "fzf" | "telescope" | string
+      provider = "fzf",
+      -- Options override for custom providers
+      provider_opts = {},
+    },
   },
   build = "make",
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
@@ -17,7 +23,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
-    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+    "echasnovski/mini.icons",
     -- "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       -- support for image pasting

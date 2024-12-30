@@ -8,8 +8,8 @@ if ! [ -x "$(command -v rye)" ]; then
 
   eval $cmd
 
-  mkdir -p $LOCAL_SHARE/zsh-completion/completions
-  rye self completion -s zsh > $LOCAL_SHARE/zsh-completion/completions/_rye
+  mkdir -p $LOCAL_SHARE/zsh/completions
+  rye self completion -s zsh > $LOCAL_SHARE/zsh/completions/_rye
 
   rye config --set-bool behavior.use-uv=true
   rye config --set-bool behavior.global-python=true

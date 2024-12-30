@@ -1,5 +1,6 @@
 local opt = vim.opt -- for conciseness
 local opt_local = vim.opt_local
+vim.g.lazyvim_blink_main = true
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
