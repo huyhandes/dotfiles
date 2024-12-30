@@ -17,8 +17,8 @@ if test ! -f $LOCAL_BIN/eza || [ $(eza --version | sed -n '2p' | cut -d ' ' -f 1
   wget "https://github.com/eza-community/eza/releases/download/v$EZA_VERSION/man-$EZA_VERSION.tar.gz" -O tmp
   tar xf tmp
 
-  mkdir -p $LOCAL_SHARE/zsh-completion/completions
-  cp "target/completions-$EZA_VERSION/_eza" $LOCAL_SHARE/zsh-completion/completions/
+  mkdir -p $LOCAL_SHARE/zsh/completions
+  cp "target/completions-$EZA_VERSION/_eza" $LOCAL_SHARE/zsh/completions/
   
   mkdir -p $LOCAL_SHARE/man/man1
   cp "target/man-$EZA_VERSION/eza.1" $LOCAL_SHARE/man/man1/

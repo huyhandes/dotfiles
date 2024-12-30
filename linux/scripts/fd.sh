@@ -14,8 +14,8 @@ if test ! -f $LOCAL_BIN/fd || [ $(fd --version | cut -d ' ' -f 2) != $FD_VERSION
   mkdir -p $LOCAL_SHARE/man/man1
   cp $dir/fd.1 $LOCAL_SHARE/man/man1/
 
-  mkdir -p $LOCAL_SHARE/zsh-completion/completions
-  cp $dir/autocomplete/_fd $LOCAL_SHARE/zsh-completion/completions/_fd
+  mkdir -p $LOCAL_SHARE/zsh/completions
+  cp $dir/autocomplete/_fd $LOCAL_SHARE/zsh/completions/_fd
   
   rm -r $dir
 fi

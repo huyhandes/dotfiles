@@ -17,8 +17,8 @@ if test ! -f $LOCAL_BIN/bat || [ $(bat --version | cut -d ' ' -f 2) != $BAT_VERS
   mkdir -p $LOCAL_SHARE/man/man1
   cp $dir/bat.1 $LOCAL_SHARE/man/man1/
 
-  mkdir -p $LOCAL_SHARE/zsh-completion/completions
-  cp $dir/autocomplete/bat.zsh $LOCAL_SHARE/zsh-completion/completions
+  mkdir -p $LOCAL_SHARE/zsh/completions
+  cp $dir/autocomplete/bat.zsh $LOCAL_SHARE/zsh/completions/_bat
   
   rm -r $dir
 fi
