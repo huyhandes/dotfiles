@@ -15,8 +15,8 @@ if test ! -f $LOCAL_BIN/rg || [ $(rg --version | grep ripgrep | cut -d ' ' -f 2)
   mkdir -p $LOCAL_SHARE/man/man1
   cp $dir/doc/rg.1 $LOCAL_SHARE/man/man1/
 
-  mkdir -p $LOCAL_SHARE/zsh-completion/completions
-  cp $dir/complete/_rg $LOCAL_SHARE/zsh-completion/completions/
+  mkdir -p $LOCAL_SHARE/zsh/completions
+  cp $dir/complete/_rg $LOCAL_SHARE/zsh/completions/
   
   rm -r $dir
 fi
