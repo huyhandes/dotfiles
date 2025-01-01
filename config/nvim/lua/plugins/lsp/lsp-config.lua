@@ -3,10 +3,10 @@ return {
   cmd = { "LspInfo", "LspInstall", "LspStart" },
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    -- { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-nvim-lsp" },
     { "williamboman/mason.nvim" },
     -- { "williamboman/mason-lspconfig.nvim" },
-    { "saghen/blink.cmp" },
+    -- { "saghen/blink.cmp" },
   },
   init = function()
     vim.opt.signcolumn = "yes"
@@ -18,16 +18,16 @@ return {
     },
   },
   config = function(_, opts)
-    -- local lsp_defaults = require("lspconfig").util.default_config
-
-    -- lsp_defaults.capabilities =
-    --   vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
     local lspconfig = require("lspconfig")
     local mason = require("mason-registry")
+    local lsp_defaults = lspconfig.util.default_config
 
-    local function setup_lsp(name, opts)
+    lsp_defaults.capabilities =
+      vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+    local function setup_lsp(name, lsp_opts)
       if mason.is_installed(name) then
-        lspconfig[name].setup(opts)
+        lspconfig[name].setup(lsp_opts)
       end
     end
 

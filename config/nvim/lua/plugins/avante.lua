@@ -23,6 +23,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
+    "hrsh7th/nvim-cmp",
     "echasnovski/mini.icons",
     -- "zbirenbaum/copilot.lua", -- for providers='copilot'
     {

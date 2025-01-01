@@ -2,7 +2,6 @@ return {
   "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
   dependencies = {
-    { "saghen/blink.compat", optional = false, version = "*" },
     { "rafamadriz/friendly-snippets" },
     { "cstrap/python-snippets" },
   },
@@ -58,8 +57,6 @@ return {
       -- Will be removed in a future release
       use_nvim_cmp_as_default = true,
       -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-      -- Adjusts spacing to ensure icons are aligned
-      nerd_font_variant = "normal",
     },
 
     -- Default list of enabled providers defined so that you can extend it
