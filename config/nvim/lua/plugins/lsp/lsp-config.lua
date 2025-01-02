@@ -46,12 +46,12 @@ return {
 
     setup_lsp("ruff", { init_options = { settings = { lineLength = 88, lint = { enable = true } } } })
 
-    for server, config in pairs(opts.servers) do
-      -- passing config.capabilities to blink.cmp merges with the capabilities in your
-      -- `opts[server].capabilities, if you've defined it
-      config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-      lspconfig[server].setup(config)
-    end
+    -- for server, config in pairs(opts.servers) do
+    --   -- passing config.capabilities to blink.cmp merges with the capabilities in your
+    --   -- `opts[server].capabilities, if you've defined it
+    --   config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+    --   lspconfig[server].setup(config)
+    -- end
     vim.api.nvim_create_autocmd("LspAttach", {
       desc = "LSP actions",
       callback = function(event)

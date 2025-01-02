@@ -12,8 +12,11 @@ export DOTFILES="$HOME/dotfiles"
 #   typeset -U fpath
 # }
 #
-export ZIM_HOME=$HOME/.zim
 
+source $HOME/.aliases
+source $HOME/.exports
+
+export ZIM_HOME=$HOME/.zim
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
@@ -24,9 +27,6 @@ fi
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
-
-source $HOME/.aliases
-source $HOME/.exports
 
 if [[ "$OSTYPE" =~ ^linux ]]; then
   echo "External Export Temporary shutdown"
