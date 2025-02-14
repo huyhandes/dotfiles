@@ -3,31 +3,26 @@ return {
   cmd = { "LspInfo", "LspInstall", "LspStart" },
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "hrsh7th/cmp-nvim-lsp" },
     { "williamboman/mason.nvim" },
-    -- { "williamboman/mason-lspconfig.nvim" },
-    -- { "saghen/blink.cmp" },
+    { "saghen/blink.cmp" },
   },
   init = function()
     vim.opt.signcolumn = "yes"
   end,
-  opts = {
-    servers = {
-      lua_ls = {},
-      basedpyright = {},
-    },
-  },
   config = function(_, opts)
     local lspconfig = require("lspconfig")
     local mason = require("mason-registry")
-    local lsp_defaults = lspconfig.util.default_config
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
+    local lsp_mapping = {}
+    lsp_mapping["lua-language-server"] = "lua_ls"
 
-    lsp_defaults.capabilities =
-      vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-    local function setup_lsp(name, lsp_opts)
+    local function setup_lsp(name, server_opts)
+      local lsp_name = lsp_mapping[name]
+      if lsp_name == nil then
+        lsp_name = name
+      end
       if mason.is_installed(name) then
-        lspconfig[name].setup(lsp_opts)
+        lspconfig[lsp_name].setup(server_opts)
       end
     end
 
@@ -42,16 +37,15 @@ return {
         },
       },
       autostart = false,
+      capabilities = capabilities,
     })
 
-    setup_lsp("ruff", { init_options = { settings = { lineLength = 88, lint = { enable = true } } } })
+    setup_lsp(
+      "ruff",
+      { init_options = { settings = { lineLength = 88, lint = { enable = true } } }, capabilities = capabilities }
+    )
+    setup_lsp("lua-language-server", { capabilities = capabilities })
 
-    -- for server, config in pairs(opts.servers) do
-    --   -- passing config.capabilities to blink.cmp merges with the capabilities in your
-    --   -- `opts[server].capabilities, if you've defined it
-    --   config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-    --   lspconfig[server].setup(config)
-    -- end
     vim.api.nvim_create_autocmd("LspAttach", {
       desc = "LSP actions",
       callback = function(event)

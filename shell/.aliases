@@ -1,5 +1,4 @@
 alias vpn="sudo openfortivpn"
-alias dpsa="docker ps -a"
-alias drmi="docker rmi"
-alias mamba=micromamba
-alias conda=micromamba
+alias vi=nvim
+alias lg=lazygit
+alias ldk=lazydocker

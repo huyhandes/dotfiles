@@ -27,7 +27,23 @@ return {
         path = vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/Handes",
       },
     },
-    notes_subdir = "6 - Zettelkasten",
+    notes_subdir = "6. Random Notes",
     new_notes_localtion = "notes_subdir",
+    templates = {
+      folder = "5. Templates",
+    },
+    daily_notes = {
+      folder = "Notes/Daily",
+      template = "Daily Note Template.md",
+    },
   },
+  config = function(_, opts)
+    vim.opt.conceallevel = 1
+
+    opts.mappings = opts.mappings or {} -- ✅ Ensure mappings exist
+    opts.mappings["<CR>"] = nil -- ✅ Correct way to disable Enter remap
+
+    -- Ensure Obsidian is set up correctly
+    require("obsidian").setup(opts)
+  end,
 }
