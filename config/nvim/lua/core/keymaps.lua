@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
-
+local opts = { noremap = true, silent = true }
 -- General Keymaps -------------------
 
 -- use jk to exit insert mode
@@ -13,6 +13,22 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
+
+-- Keep cursor centered when scrolling
+keymap.set("n", "<C-d>", "<C-d>zz", opts)
+keymap.set("n", "<C-u>", "<C-u>zz", opts)
+
+-- Move selected line / block of text in visual mode
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
+
+-- paste over currently selected text without yanking it
+keymap.set("v", "p", '"_dp')
+keymap.set("v", "P", '"_dP')
+
+-- better indenting
+keymap.set("v", "<", "<gv")
+keymap.set("v", ">", ">gv")
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -30,16 +46,16 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
-vim.keymap.set({ "x", "o" }, "ic", "iB")
-vim.keymap.set({ "x", "o" }, "ac", "aB")
-vim.keymap.set({ "x", "o" }, "ir", "i[")
-vim.keymap.set({ "x", "o" }, "ar", "a[")
-vim.keymap.set({ "x", "o" }, "il", "i<")
-vim.keymap.set({ "x", "o" }, "al", "a<")
+keymap.set({ "x", "o" }, "ic", "iB")
+keymap.set({ "x", "o" }, "ac", "aB")
+keymap.set({ "x", "o" }, "ir", "i[")
+keymap.set({ "x", "o" }, "ar", "a[")
+keymap.set({ "x", "o" }, "il", "i<")
+keymap.set({ "x", "o" }, "al", "a<")
 
-vim.keymap.set({ "x", "o" }, "ij", 'i"')
-vim.keymap.set({ "x", "o" }, "aj", 'a"')
-vim.keymap.set({ "x", "o" }, "ik", "i'")
-vim.keymap.set({ "x", "o" }, "ak", "a'")
-vim.keymap.set({ "x", "o" }, "iz", "i`")
-vim.keymap.set({ "x", "o" }, "az", "a`")
+keymap.set({ "x", "o" }, "ij", 'i"')
+keymap.set({ "x", "o" }, "aj", 'a"')
+keymap.set({ "x", "o" }, "ik", "i'")
+keymap.set({ "x", "o" }, "ak", "a'")
+keymap.set({ "x", "o" }, "iz", "i`")
+keymap.set({ "x", "o" }, "az", "a`")

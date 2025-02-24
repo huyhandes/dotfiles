@@ -3,6 +3,7 @@ return {
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = "markdown",
+  -- enable = false,
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   event = {
     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -38,11 +39,9 @@ return {
     },
   },
   config = function(_, opts)
-    vim.opt.conceallevel = 1
-
     opts.mappings = opts.mappings or {} -- ✅ Ensure mappings exist
     opts.mappings["<CR>"] = nil -- ✅ Correct way to disable Enter remap
-
+    opts.ui = { enable = false }
     -- Ensure Obsidian is set up correctly
     require("obsidian").setup(opts)
   end,

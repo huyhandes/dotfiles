@@ -43,4 +43,4 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 -- conceallevel
-opt_local.conceallevel = 1
+opt_local.conceallevel = 2
