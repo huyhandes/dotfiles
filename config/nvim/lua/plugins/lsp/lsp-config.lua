@@ -36,7 +36,6 @@ return {
           },
         },
       },
-      autostart = false,
       capabilities = capabilities,
     })
 

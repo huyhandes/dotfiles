@@ -1,9 +1,22 @@
+local kind_icons = {
+  -- LLM Provider icons
+  claude = "󰋦",
+  openai = "󱢆",
+  codestral = "󱎥",
+  gemini = "",
+  Groq = "",
+  Openrouter = "󱂇",
+  Ollama = "󰳆",
+  ["Llama.cpp"] = "󰳆",
+  Deepseek = "",
+}
 return {
   "saghen/blink.cmp",
   dependencies = {
     { "rafamadriz/friendly-snippets" },
     { "cstrap/python-snippets" },
     { "saghen/blink.compat", lazy = true, verson = false },
+    { "Kaiser-Yang/blink-cmp-avante" },
   },
   version = "*",
   ---@module 'blink.cmp'
@@ -16,6 +29,10 @@ return {
       list = {
         selection = { preselect = false, auto_insert = true },
       },
+      trigger = {
+        prefetch_on_insert = false,
+      },
+      accept = { auto_brackets = { enabled = true } },
       menu = {
         draw = {
           components = {
@@ -38,6 +55,7 @@ return {
     appearance = {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = "normal",
+      kind_icons = kind_icons,
     },
     signature = { enabled = true },
     sources = {
@@ -46,13 +64,12 @@ return {
         "path",
         "snippets",
         "buffer",
+        -- "markdown",
         "minuet",
-        "obsidian",
-        "obsidian_new",
-        "obsidian_tags",
-      },
-      per_filetype = {
-        codecompanion = { "codecompanion" },
+        "avante",
+        -- "obsidian",
+        -- "obsidian_new",
+        -- "obsidian_tags",
       },
       providers = {
         minuet = {
@@ -60,9 +77,16 @@ return {
           module = "minuet.blink",
           score_offset = 8, -- Gives minuet higher priority among suggestions
         },
-        obsidian = { name = "obsidian", module = "blink.compat.source" },
-        obsidian_new = { name = "obsidian_new", module = "blink.compat.source" },
-        obsidian_tags = { name = "obsidian_tags", module = "blink.compat.source" },
+        avante = {
+          module = "blink-cmp-avante",
+          name = "Avante",
+          opts = {
+            -- options for blink-cmp-avante
+          },
+        },
+        -- obsidian = { name = "obsidian", module = "blink.compat.source" },
+        -- obsidian_new = { name = "obsidian_new", module = "blink.compat.source" },
+        -- obsidian_tags = { name = "obsidian_tags", module = "blink.compat.source" },
       },
     },
   },

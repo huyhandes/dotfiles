@@ -2,6 +2,9 @@ return {
   "milanglacier/minuet-ai.nvim",
   config = function()
     require("minuet").setup({
+      cmp = {
+        enable_auto_complete = false,
+      },
       provider = "codestral",
       provider_options = {
         codestral = {
