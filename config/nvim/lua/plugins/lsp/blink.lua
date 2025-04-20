@@ -16,7 +16,6 @@ return {
     { "rafamadriz/friendly-snippets" },
     { "cstrap/python-snippets" },
     { "saghen/blink.compat", lazy = true, verson = false },
-    { "Kaiser-Yang/blink-cmp-avante" },
   },
   version = "*",
   ---@module 'blink.cmp'
@@ -66,10 +65,13 @@ return {
         "buffer",
         -- "markdown",
         "minuet",
-        "avante",
+        -- "avante",
         -- "obsidian",
         -- "obsidian_new",
         -- "obsidian_tags",
+      },
+      per_filetype = {
+        codecompanion = { "codecompanion" },
       },
       providers = {
         minuet = {
@@ -77,13 +79,13 @@ return {
           module = "minuet.blink",
           score_offset = 8, -- Gives minuet higher priority among suggestions
         },
-        avante = {
-          module = "blink-cmp-avante",
-          name = "Avante",
-          opts = {
-            -- options for blink-cmp-avante
-          },
-        },
+        -- avante = {
+        --   module = "blink-cmp-avante",
+        --   name = "Avante",
+        --   opts = {
+        --     -- options for blink-cmp-avante
+        --   },
+        -- },
         -- obsidian = { name = "obsidian", module = "blink.compat.source" },
         -- obsidian_new = { name = "obsidian_new", module = "blink.compat.source" },
         -- obsidian_tags = { name = "obsidian_tags", module = "blink.compat.source" },

@@ -3,7 +3,7 @@ return {
   lazy = false,
   opts = {
     preview = {
-      filetypes = { "markdown", "Avante" },
+      filetypes = { "markdown", "Avante", "codecompanion" },
       ignore_buftypes = {},
       icon_provider = "mini",
       modes = { "n", "no", "c", "i" },

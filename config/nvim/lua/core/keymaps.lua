@@ -46,6 +46,7 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- surround keymap
 keymap.set({ "x", "o" }, "ic", "iB")
 keymap.set({ "x", "o" }, "ac", "aB")
 keymap.set({ "x", "o" }, "ir", "i[")
@@ -59,3 +60,11 @@ keymap.set({ "x", "o" }, "ik", "i'")
 keymap.set({ "x", "o" }, "ak", "a'")
 keymap.set({ "x", "o" }, "iz", "i`")
 keymap.set({ "x", "o" }, "az", "a`")
+
+-- CodeCompanion
+keymap.set({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<cr>", opts)
+keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", opts)
+keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", opts)
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
