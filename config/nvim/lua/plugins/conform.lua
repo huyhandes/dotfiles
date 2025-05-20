@@ -24,6 +24,8 @@ return {
         -- To organize the imports.
         "ruff_organize_imports",
       },
+      json = { "jq" },
+      go = { "gofumpt" },
     },
     default_format_opts = {
       lsp_format = "fallback",

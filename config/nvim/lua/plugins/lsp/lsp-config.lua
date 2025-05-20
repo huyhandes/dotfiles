@@ -15,6 +15,8 @@ return {
     local capabilities = require("blink.cmp").get_lsp_capabilities()
     local lsp_mapping = {}
     lsp_mapping["lua-language-server"] = "lua_ls"
+    lsp_mapping["docker-compose-language-service"] = "docker_compose_language_service"
+    lsp_mapping["dockerfile-language-server"] = "dockerls"
 
     local function setup_lsp(name, server_opts)
       local lsp_name = lsp_mapping[name]
@@ -44,7 +46,21 @@ return {
       { init_options = { settings = { lineLength = 88, lint = { enable = true } } }, capabilities = capabilities }
     )
     setup_lsp("lua-language-server", { capabilities = capabilities })
+    setup_lsp("dockerfile-language-server", { capabilities = capabilities })
+    setup_lsp("docker-compose-language-service", { capabilities = capabilities })
 
+    setup_lsp("gopls", {
+      settings = {
+        gopls = {
+          analyses = {
+            unusedparams = true,
+          },
+          staticcheck = true,
+          gofumpt = true,
+        },
+      },
+      capabilities = capabilities,
+    })
     vim.api.nvim_create_autocmd("LspAttach", {
       desc = "LSP actions",
       callback = function(event)
