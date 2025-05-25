@@ -9,8 +9,7 @@ return {
   init = function()
     vim.opt.signcolumn = "yes"
   end,
-  config = function(_, opts)
-    local lspconfig = require("lspconfig")
+  config = function()
     local mason = require("mason-registry")
     local capabilities = require("blink.cmp").get_lsp_capabilities()
     local lsp_mapping = {}
@@ -24,23 +23,25 @@ return {
         lsp_name = name
       end
       if mason.is_installed(name) then
-        lspconfig[lsp_name].setup(server_opts)
+        vim.lsp.enable(lsp_name)
+        vim.lsp.config(lsp_name, server_opts)
+        -- lspconfig[lsp_name].setup(server_opts)
       end
     end
 
-    setup_lsp("basedpyright", {
-      settings = {
-        basedpyright = {
-          analysis = {
-            autoImportCompletions = true,
-            autoSearchPaths = true,
-            useLibraryCodeForTypes = true,
-          },
-        },
-      },
-      capabilities = capabilities,
-    })
-
+    setup_lsp("pyrefly", { capabilities = capabilities })
+    -- setup_lsp("basedpyright", {
+    --   settings = {
+    --     basedpyright = {
+    --       analysis = {
+    --         autoImportCompletions = true,
+    --         autoSearchPaths = true,
+    --         useLibraryCodeForTypes = true,
+    --       },
+    --     },
+    --   },
+    --   capabilities = capabilities,
+    -- })
     setup_lsp(
       "ruff",
       { init_options = { settings = { lineLength = 88, lint = { enable = true } } }, capabilities = capabilities }
