@@ -44,6 +44,5 @@ return {
         end,
       },
     })
-    require("mini.files").setup()
   end,
 }

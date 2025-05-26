@@ -14,9 +14,12 @@ return {
           },
           gitsigns = true,
           mason = true,
+          markview = true,
           treesitter = true,
-          neotree = true,
-          telescope = true,
+          rainbow_delimiters = true,
+          snacks = {
+            enabled = true,
+          },
         },
       })
       vim.cmd.colorscheme("catppuccin-macchiato")

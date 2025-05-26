@@ -52,6 +52,6 @@ keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", opts
 keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", opts)
 
 -- Mini.Files
-keymap.set("n", "<leader>nt", ":lua MiniFiles.open()<cr>", {})
+-- keymap.set("n", "<leader>nt", ":lua MiniFiles.open()<cr>", {})
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
