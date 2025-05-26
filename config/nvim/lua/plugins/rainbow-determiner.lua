@@ -4,7 +4,5 @@ return {
   lazy = true,
   version = "*",
   submodules = false,
-  config = function()
-    require("rainbow-delimiters.setup").setup()
-  end,
+  main = "rainbow-delimiters.setup",
 }
