@@ -15,6 +15,7 @@ export DOTFILES="$HOME/dotfiles"
 
 source $HOME/.aliases
 source $HOME/.exports
+source $HOME/.functions
 
 export ZIM_HOME=$HOME/.zim
 # Download zimfw plugin manager if missing.

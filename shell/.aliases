@@ -2,3 +2,4 @@ alias vpn="sudo openfortivpn"
 alias vi=nvim
 alias lg=lazygit
 alias ldk=lazydocker
+alias gak="source $HOME/.config/secret/.exports"

@@ -3,15 +3,13 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000, -- make sure to load this before all the other start plugins
-    config = function(opts)
-      -- load the colorscheme here
+    config = function()
       require("catppuccin").setup({
         transparent_background = true,
+        default_integrations = false,
         integrations = {
           blink_cmp = true,
-          mini = {
-            enabled = true,
-          },
+          mini = { enabled = true },
           gitsigns = true,
           mason = true,
           markview = true,

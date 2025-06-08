@@ -6,15 +6,14 @@ return {
     { "williamboman/mason.nvim", opts = {} },
     { "saghen/blink.cmp" },
   },
-  init = function()
-    vim.opt.signcolumn = "yes"
-  end,
+  init = function() vim.opt.signcolumn = "yes" end,
   config = function()
     vim.lsp.enable({
       "lua_ls",
       "docker_compose_language_service",
       "dockerls",
-      "pyrefly",
+      "basedpyright",
+      -- "pyrefly",
       "gopls",
       "ruff",
     })
@@ -32,18 +31,16 @@ return {
         },
       },
     })
-    -- setup_lsp("pyrefly", { capabilities = capabilities })
-    -- setup_lsp("basedpyright", {
-    --   settings = {
-    --     basedpyright = {
-    --       analysis = {
-    --         autoImportCompletions = true,
-    --         autoSearchPaths = true,
-    --         useLibraryCodeForTypes = true,
-    --       },
-    --     },
-    --   },
-    --   capabilities = capabilities,
-    -- })
+    vim.lsp.config("basedpyright", {
+      settings = {
+        basedpyright = {
+          analysis = {
+            autoImportCompletions = true,
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
+    })
   end,
 }

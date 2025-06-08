@@ -1,5 +1,5 @@
 local opt = vim.opt -- for conciseness
-local opt_local = vim.opt_local
+local o = vim.o
 vim.g.lazyvim_blink_main = true
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -42,5 +42,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
--- conceallevel
-opt_local.conceallevel = 2
+-- laststatus
+o.laststatus = 3

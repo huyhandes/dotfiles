@@ -16,6 +16,7 @@ return {
     { "rafamadriz/friendly-snippets" },
     { "cstrap/python-snippets" },
     { "saghen/blink.compat", lazy = true, verson = false },
+    { "Kaiser-Yang/blink-cmp-avante" },
   },
   version = "*",
   ---@module 'blink.cmp'
@@ -26,7 +27,7 @@ return {
     },
     completion = {
       list = {
-        selection = { preselect = false, auto_insert = true },
+        selection = { preselect = false, auto_insert = false },
       },
       trigger = {
         prefetch_on_insert = false,
@@ -65,30 +66,46 @@ return {
         "buffer",
         -- "markdown",
         "minuet",
-        -- "avante",
-        -- "obsidian",
-        -- "obsidian_new",
-        -- "obsidian_tags",
+        -- "codecompanion",
+        "avante",
+        "avante_commands",
+        "avante_mentions",
+        "avante_files",
       },
-      per_filetype = {
-        codecompanion = { "codecompanion" },
-      },
+      -- per_filetype = {
+      --   codecompanion = { "codecompanion" },
+      -- },
       providers = {
         minuet = {
           name = "minuet",
           module = "minuet.blink",
           score_offset = 8, -- Gives minuet higher priority among suggestions
         },
-        -- avante = {
-        --   module = "blink-cmp-avante",
-        --   name = "Avante",
-        --   opts = {
-        --     -- options for blink-cmp-avante
-        --   },
-        -- },
-        -- obsidian = { name = "obsidian", module = "blink.compat.source" },
-        -- obsidian_new = { name = "obsidian_new", module = "blink.compat.source" },
-        -- obsidian_tags = { name = "obsidian_tags", module = "blink.compat.source" },
+        avante = {
+          module = "blink-cmp-avante",
+          name = "Avante",
+          opts = {
+            -- options for blink-cmp-avante
+          },
+        },
+        avante_commands = {
+          name = "avante_commands",
+          module = "blink.compat.source",
+          score_offset = 90, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_files = {
+          name = "avante_files",
+          module = "blink.compat.source",
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_mentions = {
+          name = "avante_mentions",
+          module = "blink.compat.source",
+          score_offset = 1000, -- show at a higher priority than lsp
+          opts = {},
+        },
       },
     },
   },

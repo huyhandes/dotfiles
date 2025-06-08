@@ -17,6 +17,7 @@
     ~/.zimrc: shell/.zimrc
     ~/.aliases: shell/.aliases
     ~/.exports: shell/.exports
+    ~/.functions: shell/.functions
     ~/.config/rclone:
       if: '[ `uname` = Darwin ]'
       path: ~/Documents/rclone
