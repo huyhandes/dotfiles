@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ## Install Tmux
-if test ! -f "$LOCAL_BIN/tmux"; then
+if test ! -f "$HOME/.local/bin/tmux"; then
   TMUX_VERSION="3.4"
-  cp "$DOTFILES/linux/app/tmux" "$LOCAL_BIN/tmux"
+  mkdir -p $HOME/.local/bin
+  cp "$DOTFILES/linux/app/tmux" "$HOME/.local/bin/tmux"
 fi

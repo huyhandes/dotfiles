@@ -5,6 +5,7 @@
 if ! [ -x "$(command -v fabric)" ]; then
 
   platform="$(uname | tr '[:upper:]' '[:lower:]')-$(uname -m)"
-  curl -L https://github.com/danielmiessler/fabric/releases/latest/download/fabric-$platform > $LOCAL_BIN/fabric
-  chmod +x $LOCAL_BIN/fabric
+  mkdir -p $HOME/.local/bin
+  curl -L https://github.com/danielmiessler/fabric/releases/latest/download/fabric-$platform > $HOME/.local/bin/fabric
+  chmod +x $HOME/.local/bin/fabric
 fi

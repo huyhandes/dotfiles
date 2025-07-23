@@ -1,5 +1,6 @@
 #!/bin/bash
 
 if ! [ -x "$(command -v xh)" ]; then
-  curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | XH_BINDIR="$LOCAL_BIN" sh
+  mkdir -p $HOME/.local/bin
+  curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | XH_BINDIR="$HOME/.local/bin" sh
 fi
