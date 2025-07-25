@@ -8,9 +8,7 @@ return {
     explorer = { replace_netrw = true },
     indent = {},
     input = {},
-    notifier = {
-      timeout = 3000,
-    },
+    notifier = {},
     image = {},
     lazygit = {},
     picker = {},
