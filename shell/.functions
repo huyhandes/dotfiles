@@ -1,5 +1,6 @@
 function sync_dotfiles(){
   for i in {15..18}; do
+    echo "Syncing ai.server.$i"
     ssh ai.server.$i 'cd ~/dotfiles && git pull'
   done
 }
