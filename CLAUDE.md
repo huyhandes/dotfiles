@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a personal dotfiles repository that manages development environment configurations using the Dotbot framework. The repository follows a modular architecture with platform-specific installations and cross-platform configuration management.
+This is a personal dotfiles repository that manages development environment configurations using a custom shell script installer. The repository follows a modular architecture with platform-specific installations and cross-platform configuration management.
 
 ## Common Commands
 
 ### Initial Setup
 ```bash
-./install                 # Link dotfiles using Dotbot (primary installer)
+./install.sh             # Link dotfiles using custom shell script (primary installer)
 macos/install.sh         # Install macOS packages via Homebrew
 linux/install.sh        # Install Linux packages via individual scripts
 ```
@@ -27,7 +27,7 @@ scripts/tpm.sh          # Install Tmux Plugin Manager
 ### Configuration Management
 ```bash
 # Re-link configurations after changes
-./install
+./install.sh
 
 # Update git submodules (shell configs)
 git submodule update --init --recursive
@@ -40,11 +40,13 @@ bat cache --build
 
 ### Core Components
 
-**Dotbot Framework (`install.conf.yaml`)**
+**Custom Shell Script Installer (`install.sh`)**
 - Handles automated symlinking of all configuration files
 - Creates necessary directories and manages cleanup
-- Links `config/*` to `~/.config/` recursively
+- Links `config/*` to `~/.config/` (top-level directories only)
 - Manages shell configurations from git submodule
+- Provides colored output and error handling
+- Backs up existing files before replacing them
 
 **Platform-Specific Setup**
 - `macos/`: Homebrew-based package management via Brewfile
@@ -82,13 +84,13 @@ bat cache --build
 ### Development Workflow
 
 1. **Making Configuration Changes**: Edit files in `config/` directory
-2. **Apply Changes**: Run `./install` to re-link configurations
+2. **Apply Changes**: Run `./install.sh` to re-link configurations
 3. **Platform Updates**: Modify `macos/Brewfile` or `linux/scripts/` for package changes
 4. **Shell Configuration**: Changes to shell configs require submodule updates
 
 ### Key Files to Understand
 
-- `install.conf.yaml`: Dotbot configuration defining all symlinks and setup tasks
+- `install.sh`: Custom shell script installer defining all symlinks and setup tasks
 - `macos/Brewfile`: Complete list of macOS packages and applications
 - `config/nvim/init.lua`: Neovim entry point and plugin loader
 - `shell/` submodule: Contains actual shell configuration files
@@ -96,8 +98,8 @@ bat cache --build
 ### Dependencies
 
 **System Requirements**
-- Git (for submodules and Dotbot)
-- Python (for Dotbot framework)
+- Git (for submodules)
+- Bash (for install script)
 - Platform-specific package managers (Homebrew on macOS)
 
 **Key Tools Managed**
