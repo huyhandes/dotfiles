@@ -1,0 +1,40 @@
+# Ghostty Configuration
+# Based on Kitty configuration from /Users/huybui/dotfiles/config/kitty/
+
+# Theme - Catppuccin Macchiato (matches Kitty theme)
+theme = catppuccin-macchiato
+
+# Font Configuration
+font-family = FiraCode Nerd Font Mono
+font-size = 16
+
+# Background Effects
+background-opacity = 0.8
+background-blur = 32
+
+# Cursor Configuration
+cursor-style = block
+
+# Tab Bar Configuration
+gtk-tabs-location = top
+
+# macOS Specific Settings
+macos-titlebar-style = tabs
+macos-option-as-alt = true
+
+# Keybindings - Copy/Paste
+keybind = cmd+v=paste_from_clipboard
+keybind = cmd+c=copy_to_clipboard
+keybind = ctrl+shift+s=paste_from_selection
+
+# Tab Navigation
+keybind = cmd+one=goto_tab:1
+keybind = cmd+two=goto_tab:2
+keybind = cmd+three=goto_tab:3
+keybind = cmd+four=goto_tab:4
+keybind = cmd+five=goto_tab:5
+keybind = cmd+six=goto_tab:6
+
+# Word Navigation (Alt+Arrow keys)
+keybind = alt+left=text:\x1b\x62
+keybind = alt+right=text:\x1b\x66
