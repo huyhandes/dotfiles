@@ -38,3 +38,4 @@ keybind = cmd+six=goto_tab:6
 # Word Navigation (Alt+Arrow keys)
 keybind = alt+left=text:\x1b\x62
 keybind = alt+right=text:\x1b\x66
+keybind = shift+enter=text:\n
