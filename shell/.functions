@@ -4,3 +4,161 @@ function sync_dotfiles(){
     ssh ai.server.$i 'cd ~/dotfiles && git pull'
   done
 }
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Log functions
+log_info() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+log_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+log_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+# Platform detection
+detect_platform() {
+    local os_type
+    local arch
+    
+    os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
+    arch=$(uname -m)
+    
+    case "$os_type" in
+        darwin) os_type="darwin" ;;
+        linux) os_type="linux" ;;
+        *) log_error "Unsupported OS: $os_type"; return 1 ;;
+    esac
+    
+    case "$arch" in
+        x86_64|amd64) arch="amd64" ;;
+        arm64|aarch64) arch="arm64" ;;
+        *) log_error "Unsupported architecture: $arch"; return 1 ;;
+    esac
+    
+    echo "${os_type}-${arch}"
+}
+
+# Check if command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Download file with retry
+download_file() {
+    local url="$1"
+    local output="$2"
+    local retries=3
+    
+    for ((i=1; i<=retries; i++)); do
+        if command_exists curl; then
+            if curl -sSL --fail "$url" -o "$output"; then
+                return 0
+            fi
+        elif command_exists wget; then
+            if wget -q "$url" -O "$output"; then
+                return 0
+            fi
+        else
+            log_error "Neither curl nor wget available for downloading"
+            return 1
+        fi
+        log_warning "Download attempt $i failed, retrying..."
+        sleep 1
+    done
+    
+    log_error "Failed to download: $url"
+    return 1
+}
+
+# Extract archive based on file extension or URL
+extract_archive() {
+    local archive="$1"
+    local dest_dir="$2"
+    local format="${3:-}"  # Optional format hint
+    
+    # If format not provided, try to determine from filename
+    if [[ -z "$format" ]]; then
+        case "$archive" in
+            *.tar.gz|*.tgz)
+                format="tar.gz"
+                ;;
+            *.tar.xz)
+                format="tar.xz"
+                ;;
+            *.zip)
+                format="zip"
+                ;;
+            *.gz)
+                format="gz"
+                ;;
+            *)
+                # Try to detect format by examining the file
+                if file "$archive" | grep -q "gzip compressed"; then
+                    format="tar.gz"
+                elif file "$archive" | grep -q "POSIX tar archive"; then
+                    format="tar"
+                elif file "$archive" | grep -q "Zip archive"; then
+                    format="zip"
+                elif file "$archive" | grep -q "XZ compressed"; then
+                    format="tar.xz"
+                else
+                    log_error "Cannot determine archive format: $archive"
+                    return 1
+                fi
+                ;;
+        esac
+    fi
+    
+    case "$format" in
+        tar.gz|tgz)
+            tar -xzf "$archive" -C "$dest_dir"
+            ;;
+        tar)
+            tar -xf "$archive" -C "$dest_dir"
+            ;;
+        tar.xz)
+            tar -xJf "$archive" -C "$dest_dir"
+            ;;
+        zip)
+            unzip -q "$archive" -d "$dest_dir"
+            ;;
+        gz)
+            gzip -d -c "$archive" > "$dest_dir/$(basename "${archive%.gz}")"
+            ;;
+        *)
+            log_error "Unsupported archive format: $format"
+            return 1
+            ;;
+    esac
+}
+
+# Create symlink safely
+create_symlink_safe() {
+    local source="$1"
+    local target="$2"
+    
+    if [[ -L "$target" ]]; then
+        rm "$target"
+    elif [[ -e "$target" ]]; then
+        local backup_file="${target}.backup.$(date +%Y%m%d_%H%M%S)"
+        log_warning "File exists, backing up to: $backup_file"
+        mv "$target" "$backup_file"
+    fi
+    
+    mkdir -p "$(dirname "$target")"
+    ln -s "$source" "$target"
+}

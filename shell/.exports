@@ -1,25 +1,46 @@
+# System & Locale
 export LC_ALL=en_US.UTF-8
 export LIBRARY_PATH=/usr/local/lib
+
+# Terminal & Shell Configuration
 export BAT_THEME="Catppuccin Mocha"
-export RYE_HOME="$HOME/opt/rye"
+export KEYTIMEOUT=1
+export EDITOR=nvim
+
+# FZF Configuration
 export FZF_DEFAULT_OPTS="--tmux center,90%,50%"
 export FZF_CTRL_T_OPTS="--walker file --walker-skip .vscode,__pycache__,.git,node_modules,target --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree -L 2 {}'"
-export KEYTIMEOUT=1
-export SSH="$HOME/.ssh"
-export XDG_CONFIG_HOME="$HOME/.config"
-export ZSH_CACHE_DIR="$HOME/.local/share/zsh"
-export PATH="$HOME/.local/bin:$PATH"
-export FPATH="$HOME/.local/share/zsh/completions:$FPATH"
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-export EDITOR=nvim
-export CARGO_HOME=$HOME/.cargo
-export RUSTUP_HOME=$HOME/.rustup
-export PATH="$CARGO_HOME/bin:$PATH"
+
+# XDG & Directory Configuration
+export XDG_CONFIG_HOME=$HOME/.config
+export ZSH_CACHE_DIR=$HOME/.local/share/zsh
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
+
+# PATH & Shell Completions
+export PATH=$HOME/.local/bin:$PATH
+export FPATH=$HOME/.local/share/zsh/completions:$FPATH
+
+# Programming Languages
+# Python/Rye
+export RYE_HOME=$HOME/opt/rye
+
+# Rust
+export CARGO_HOME=$HOME/opt/cargo
+export RUSTUP_HOME=$HOME/opt/rustup
+export PATH=$CARGO_HOME/bin:$PATH
+
+# Neovim Mason Tools
 export PATH="~/.local/share/nvim/mason/bin/basedpyright:$PATH"
-export GOROOT="$HOME/opt/go"
-export PATH="$GOROOT/bin:$PATH"
-export GOPATH="$HOME/Code/go"
-export JAVA_HOME="$HOME/opt/jdk-17/Contents/Home"
-export PATH="$JAVA_HOME/bin:$PATH"
-export PATH="$PATH:$HOME/opt/gradle-8.14/bin"
+
+# Go
+export GOROOT=$HOME/opt/go
+export GOPATH=$HOME/opt/go-workspace
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+# Java
+export JAVA_HOME=$HOME/opt/java
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Coursier (Scala)
+export PATH=$HOME/opt/coursier:$PATH
