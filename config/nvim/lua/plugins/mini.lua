@@ -13,6 +13,7 @@ return {
       style = "glyph",
     })
     MiniIcons.mock_nvim_web_devicons()
+    require("mini.tabline").setup()
     require("mini.statusline").setup({
       content = {
         active = function()

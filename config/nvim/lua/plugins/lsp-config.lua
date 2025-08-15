@@ -13,12 +13,15 @@ return {
       "docker_compose_language_service",
       "dockerls",
       "basedpyright",
-      -- "pyrefly",
+      "metals",
       "gopls",
       "ruff",
     })
     vim.lsp.config("ruff", {
       init_options = { settings = { lineLength = 88, lint = { enable = true } } },
+    })
+    vim.lsp.config("metals", {
+      filetypes = { "scala", "sbt" },
     })
     vim.lsp.config("gopls", {
       settings = {

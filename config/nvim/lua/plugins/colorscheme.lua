@@ -1,6 +1,7 @@
 return {
   {
     "catppuccin/nvim",
+    dependencies = { "folke/snacks.nvim" },
     name = "catppuccin",
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
@@ -15,9 +16,7 @@ return {
           markview = true,
           treesitter = true,
           rainbow_delimiters = true,
-          snacks = {
-            enabled = true,
-          },
+          snacks = { enabled = true },
         },
       })
       vim.cmd.colorscheme("catppuccin-macchiato")

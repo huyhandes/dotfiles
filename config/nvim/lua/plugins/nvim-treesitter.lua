@@ -21,6 +21,7 @@ return {
         "json",
         "yaml",
         "sql",
+        "scala",
         "python",
       },
       sync_install = false,
