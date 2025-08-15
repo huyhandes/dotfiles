@@ -276,18 +276,20 @@ simulate_install() {
 parse_yaml() {
     local file="$1"
     local prefix="$2"
-    local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
+    local s='[[:space:]]*' w='[a-zA-Z0-9_-]*' fs=$(echo @|tr @ '\034')
     
     sed -ne "s|^\($s\):|\1|" \
         -e "s|^\($s\)\($w\)$s:$s[\"']\(.*\)[\"']$s\$|\1$fs\2$fs\3|p" \
         -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p" "$file" |
     awk -F$fs '{
         indent = length($1)/2;
-        vname[indent] = $2;
+        # Convert hyphens to underscores in key names
+        key = $2; gsub(/-/, "_", key);
+        vname[indent] = key;
         for (i in vname) {if (i > indent) {delete vname[i]}}
         if (length($3) > 0) {
             vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
-            printf("%s%s%s=%s\n", "'$prefix'",vn, $2, $3);
+            printf("%s%s%s=%s\n", "'$prefix'",vn, key, $3);
         }
     }'
 }
@@ -431,8 +433,13 @@ install_via_url() {
             local files_array
             IFS=',' read -ra files_array <<< "${extract_files//[\[\]]/}"
             for file in "${files_array[@]}"; do
-                file=$(echo "$file" | tr -d ' ')
-                find "$(dirname "$install_path")" -name "$file" -exec cp {} "$install_path/" \;
+                file=$(echo "$file" | tr -d ' ' | tr -d '"')
+                # Find the extracted file and copy it to the install path
+                find "$(dirname "$install_path")" -name "$file" -type f -exec cp {} "$install_path/" \;
+                # Make executable if it's a binary
+                if [[ -f "$install_path/$file" ]]; then
+                    chmod +x "$install_path/$file"
+                fi
             done
         fi
     else

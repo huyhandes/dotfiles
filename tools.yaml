@@ -22,18 +22,21 @@ tools:
     check_version_regex: "go([0-9.]+)"
 
   neovim:
-    version: "v0.11.1"
+    version: "v0.11.3"
     description: "Neovim text editor"
     platforms:
-      darwin:
-        homebrew: "neovim"
+      darwin-arm64:
+        url: "https://github.com/neovim/neovim/releases/download/{version}/nvim-macos-arm64.tar.gz"
+        install_path: "$HOME/.local/bin/nvim-macos-arm64"
+        extract: true
+        symlink_source: "$HOME/.local/bin/nvim-macos-arm64/bin/nvim"
+        symlink_target: "$HOME/.local/bin/nvim"
       linux-amd64:
         url: "https://github.com/neovim/neovim/releases/download/{version}/nvim-linux-x86_64.tar.gz"
         install_path: "$HOME/.local/bin/nvim-linux64"
         extract: true
-        symlink:
-          source: "$HOME/.local/bin/nvim-linux64/bin/nvim"
-          target: "$HOME/.local/bin/nvim"
+        symlink_source: "$HOME/.local/bin/nvim-linux64/bin/nvim"
+        symlink_target: "$HOME/.local/bin/nvim"
     check_command: "nvim --version"
     check_version_regex: "NVIM (v[0-9.]+)"
 
@@ -59,11 +62,14 @@ tools:
     check_version_regex: "zoxide ([0-9.]+)"
 
   lazygit:
-    version: "0.44.0"
+    version: "0.54.2"
     description: "Git TUI"
     platforms:
-      darwin:
-        homebrew: "lazygit"
+      darwin-arm64:
+        url: "https://github.com/jesseduffield/lazygit/releases/download/v{version}/lazygit_{version}_darwin_arm64.tar.gz"
+        install_path: "$HOME/.local/bin"
+        extract: true
+        extract_files: ["lazygit"]
       linux-amd64:
         url: "https://github.com/jesseduffield/lazygit/releases/download/v{version}/lazygit_{version}_Linux_x86_64.tar.gz"
         install_path: "$HOME/.local/bin"
@@ -90,31 +96,34 @@ tools:
         git: "https://github.com/tmux-plugins/tpm"
         install_path: "$HOME/.tmux/plugins/tpm"
 
-  fabric:
-    description: "AI-powered CLI tool"
-    platforms:
-      all:
-        go_install: "github.com/danielmiessler/fabric@latest"
-
   rye:
     description: "Python package manager"
     platforms:
       all:
         install_script: "https://rye.astral.sh/get"
 
-  xh:
-    description: "HTTPie clone in Rust"
+  coursier:
+    description: "Scala application and artifact manager"
     platforms:
+      darwin-arm64:
+        url: "https://github.com/coursier/launchers/raw/master/cs-aarch64-apple-darwin.gz"
+        install_path: "$HOME/opt/coursier"
+        binary_name: "cs"
+        extract: "gzip"
+      darwin-amd64:
+        url: "https://github.com/coursier/launchers/raw/master/cs-x86_64-apple-darwin.gz"
+        install_path: "$HOME/opt/coursier"
+        binary_name: "cs"
+        extract: "gzip"
+      linux-amd64:
+        url: "https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz"
+        install_path: "$HOME/opt/coursier"
+        binary_name: "cs"
+        extract: "gzip"
       darwin:
-        homebrew: "xh"
-      all:
-        cargo_install: "xh"
-
-  vimongo:
-    description: "MongoDB TUI"
-    platforms:
-      all:
-        cargo_install: "vimongo"
+        homebrew: "coursier/formulas/coursier"
+    check_command: "cs version"
+    check_version_regex: "([0-9.]+)"
 
 # Global settings
 settings:
