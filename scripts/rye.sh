@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if ! [ -x "$(command -v rye)" ]; then
-  curl -sSf https://rye.astral.sh/get | RYE_VERSION='0.42.0' RYE_INSTALL_OPTION='--yes' \
-  RYE_TOOLCHAIN_VERSION='cpython@3.12.7' bash
+  curl -sSf https://rye.astral.sh/get | RYE_VERSION='0.44.0' RYE_INSTALL_OPTION='--yes' \
+  RYE_TOOLCHAIN_VERSION='cpython@3.12.10' bash
 
   cmd='source $HOME/opt/rye/env'
 

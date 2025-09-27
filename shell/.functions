@@ -162,3 +162,12 @@ create_symlink_safe() {
     mkdir -p "$(dirname "$target")"
     ln -s "$source" "$target"
 }
+
+
+switch_java() {
+    java_version=${1:-temurin:17.0.15}
+    DEST=$JAVA_HOME
+    echo $java_version
+    eval $(cs java --jvm $java_version --env)
+    ln -sfv $JAVA_HOME $DEST
+}

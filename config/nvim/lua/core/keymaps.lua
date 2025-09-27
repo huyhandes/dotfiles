@@ -49,3 +49,9 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- terminal
 vim.keymap.set("n", "<leader>T", vim.cmd.term)
 vim.keymap.set("t", "<leader>\\", "<C-\\><C-n>")
+
+-- substitute globally word under cursor
+vim.keymap.set("n", "S", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/g<Left><Left>")
+
+-- visual just pasted text
+vim.keymap.set("n", "<C-p>", "mzgpkV'zj")

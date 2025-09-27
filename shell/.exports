@@ -42,5 +42,14 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 export JAVA_HOME=$HOME/opt/java
 export PATH=$JAVA_HOME/bin:$PATH
 
+# UV
+export PATH=$HOME/opt/uv:$PATH
+
 # Coursier (Scala)
-export PATH=$HOME/opt/coursier:$PATH
+export COURSIER_BIN_DIR=$HOME/opt/coursier
+export PATH=$COURSIER_BIN_DIR:$PATH
+
+# FNM
+export FNM_HOME=$HOME/opt/fnm
+export FNM_DIR=$FNM_HOME
+export PATH=$FNM_HOME:$PATH

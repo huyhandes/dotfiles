@@ -47,4 +47,7 @@ typeset -U fpath
 source ${ZIM_HOME}/init.zsh
 fsh-alias XDG:catppuccin-macchiato -q
 
+eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(starship init zsh)"
+
+. "$HOME/opt/uv/env"
