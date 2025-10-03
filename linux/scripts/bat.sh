@@ -21,4 +21,8 @@ if test ! -f $HOME/.local/bin/bat || [ $(bat --version | cut -d ' ' -f 2) != $BA
   cp $dir/autocomplete/bat.zsh $HOME/.local/share/zsh/completions/_bat
   
   rm -r $dir
+  # Install themes
+  
+  mkdir -p $HOME/.config/bat/themes
+  wget -P  $HOME/.config/bat/themes https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
 fi

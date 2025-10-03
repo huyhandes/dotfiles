@@ -3,7 +3,7 @@ export LC_ALL=en_US.UTF-8
 export LIBRARY_PATH=/usr/local/lib
 
 # Terminal & Shell Configuration
-export BAT_THEME="Catppuccin Mocha"
+export BAT_THEME="Catppuccin Macchiato"
 export KEYTIMEOUT=1
 export EDITOR=nvim
 
@@ -31,7 +31,7 @@ export RUSTUP_HOME=$HOME/opt/rustup
 export PATH=$CARGO_HOME/bin:$PATH
 
 # Neovim Mason Tools
-export PATH="~/.local/share/nvim/mason/bin/basedpyright:$PATH"
+export PATH=$HOME/.local/share/nvim/mason/bin/basedpyright:$PATH
 
 # Go
 export GOROOT=$HOME/opt/go
@@ -49,7 +49,6 @@ export PATH=$HOME/opt/uv:$PATH
 export COURSIER_BIN_DIR=$HOME/opt/coursier
 export PATH=$COURSIER_BIN_DIR:$PATH
 
-# FNM
-export FNM_HOME=$HOME/opt/fnm
-export FNM_DIR=$FNM_HOME
-export PATH=$FNM_HOME:$PATH
+# NVM
+export NVM_DIR=$HOME/opt/nvm
+export PATH=$NVM_DIR/versions/node/v22.20.0/bin:$PATH
