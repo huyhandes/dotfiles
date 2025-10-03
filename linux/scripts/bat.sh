@@ -24,5 +24,5 @@ if test ! -f $HOME/.local/bin/bat || [ $(bat --version | cut -d ' ' -f 2) != $BA
   # Install themes
   
   mkdir -p $HOME/.config/bat/themes
-  wget -P  $HOME/.config/bat/themes https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+  curl https://raw.githubusercontent.com/catppuccin/bat/refs/heads/main/themes/Catppuccin%20Macchiato.tmTheme -o $HOME/.config/bat/themes/Catppuccin%20Macchiato.tmTheme
 fi
