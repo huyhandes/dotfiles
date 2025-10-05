@@ -1,17 +1,4 @@
 export DOTFILES="$HOME/dotfiles"
-# precmd(){
-#   source $HOME/.aliases
-#   source $HOME/.exports
-#   source $HOME/.functions
-#   if [[ "$OSTYPE" == "darwin"* ]]; then
-
-#   elif [[ "$OSTYPE" =~ ^linux ]]; then
-#     source "$DOTFILES/linux/.ext_aliases"
-#   fi
-#   typeset -U path
-#   typeset -U fpath
-# }
-#
 
 source $HOME/.aliases
 source $HOME/.exports
@@ -38,17 +25,15 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 else
   echo "No ext exports for this platform"
 fi
-if test -d "$HOME/opt/rye"; then
-  source "$HOME/opt/rye/env"
-fi
+
+# Clean up duplicate paths
 typeset -U path
 typeset -U fpath
 
 source ${ZIM_HOME}/init.zsh
 fsh-alias XDG:catppuccin-macchiato -q
 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 eval "$(starship init zsh)"
 
-. "$HOME/opt/uv/env"
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
