@@ -25,13 +25,13 @@ install_neovim() {
             symlink_source="$install_dir/bin/nvim"
             ;;
         darwin-amd64)
-            url="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-macos.tar.gz"
-            install_dir="$HOME/.local/bin/nvim-macos"
+            url="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-macos-x86_64.tar.gz"
+            install_dir="$HOME/.local/bin/nvim-macos-x86_64"
             symlink_source="$install_dir/bin/nvim"
             ;;
         linux-amd64)
-            url="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-linux64.tar.gz"
-            install_dir="$HOME/.local/bin/nvim-linux64"
+            url="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-linux-x86_64.tar.gz"
+	    install_dir="$HOME/.local/bin/nvim-linux-x86_64"
             symlink_source="$install_dir/bin/nvim"
             ;;
         *)
