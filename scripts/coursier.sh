@@ -24,6 +24,9 @@ install_coursier() {
         linux-amd64)
             url="https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz"
             ;;
+        linux-arm64)
+            url="https://github.com/coursier/launchers/raw/master/cs-aarch64-pc-linux.gz"
+            ;;
         *)
             log_error "Unsupported platform for Coursier: $platform"
             return 1

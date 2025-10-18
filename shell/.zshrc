@@ -16,14 +16,8 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 
-if [[ "$OSTYPE" =~ ^linux ]]; then
-  echo "External Export Temporary shutdown"
-  # source "$DOTFILES/linux/.ext_exports"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
   source "$DOTFILES/macos/.ext_exports"
-  source "$HOME/.kube/load-k8s-config.sh"
-else
-  echo "No ext exports for this platform"
 fi
 
 # Clean up duplicate paths
