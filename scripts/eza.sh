@@ -24,7 +24,7 @@ install_eza() {
             url="https://github.com/eza-community/eza/releases/download/v${EZA_VERSION}/eza_x86_64-unknown-linux-gnu.tar.gz"
             ;;
         linux-arm64)
-            url="https://github.com/eza-community/eza/releases/download/v${EZA_VERSION}/eza_arm-unknown-linux-gnueabihf.tar.gz"
+            url="https://github.com/eza-community/eza/releases/download/v${EZA_VERSION}/eza_aarch64-unknown-linux-gnu.tar.gz"
             ;;
         *)
             log_error "Unsupported platform for eza: $platform (eza is Linux-only)"
