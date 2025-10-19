@@ -1,0 +1,27 @@
+{
+  "plugins": {
+    "time": {
+      "url": "oci://ghcr.io/tuananh/time-plugin:v0.1.8"
+    },
+    "fetch": {
+      "url": "oci://ghcr.io/tuananh/fetch-plugin:v0.1.8",
+      "runtime_config": {
+        "allowed_hosts": [
+          "*"
+        ],
+        "memory_limit": "100 MB"
+      }
+    },
+    "context7": {
+      "url": "oci://ghcr.io/tuananh/context7-plugin:v0.1.8",
+      "runtime_config": {
+        "allowed_hosts": [
+          "context7.com"
+        ]
+      }
+    },
+    "think": {
+      "url": "oci://ghcr.io/tuananh/think-plugin:v0.1.8"
+    }
+  }
+}
