@@ -1,0 +1,22 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "lsp": {
+    "go": {
+      "command": "gopls",
+      "env": {
+        "GOTOOLCHAIN": "go1.24.5"
+      }
+    }
+  },
+  "mcp": {
+    "hyper-mcp": {
+      "type": "stdio",
+      "command": "/Users/huybui/.local/bin/hyper-mcp",
+      "args": [
+        "-c",
+        "/Users/huybui/.config/hyper-mcp/config.json",
+        "--insecure-skip-signature"
+      ]
+    }
+  }
+}
