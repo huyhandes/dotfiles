@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-CRUSH_VERSION="0.12.3"
+CRUSH_VERSION="0.13.7"
 
 install_crush() {
     local platform
