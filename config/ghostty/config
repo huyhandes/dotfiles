@@ -2,10 +2,10 @@
 # Based on Kitty configuration from /Users/huybui/dotfiles/config/kitty/
 
 # Theme - Catppuccin Macchiato (matches Kitty theme)
-theme = catppuccin-macchiato
+theme = Catppuccin Macchiato
 
 # Font Configuration
-font-family = FiraCode Nerd Font Mono
+font-family = MappleMono-NF
 font-size = 16
 
 # Background Effects

@@ -22,6 +22,18 @@
     },
     "think": {
       "url": "oci://ghcr.io/tuananh/think-plugin:v0.1.8"
+    },
+    "arxiv": {
+      "url": "oci://ghcr.io/tuananh/arxiv-plugin:v0.1.8",
+      "runtime_config": {
+        "allowed_hosts": [
+          "export.arxiv.org",
+          "arxiv.org"
+        ],
+        "allowed_paths": [
+          "/tmp"
+        ]
+      }
     }
   }
 }
