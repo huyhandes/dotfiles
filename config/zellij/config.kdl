@@ -1,6 +1,8 @@
 theme "catppuccin-macchiato"
 copy_clipboard "primary"
+copy_on_select false
 default_mode "Normal"
+default_shell "zsh"
 keybinds clear-defaults=true {
     normal {
         // Prefix-like behavior - use Ctrl a as main prefix
@@ -201,9 +203,9 @@ keybinds clear-defaults=true {
         bind "n" { Search "down"; }
         bind "N" { Search "up"; }
         
-        // Copy functionality - requires copy_on_select=false in config
+        // Copy functionality - 'y' opens scrollback in editor
         bind "v" { Search "down"; }
-        bind "y" { SwitchToMode "Normal"; }
+        bind "y" { EditScrollback; SwitchToMode "Normal"; }
         bind "c" { SwitchToMode "Normal"; }
     }
     search {
