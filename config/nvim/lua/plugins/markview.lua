@@ -4,7 +4,7 @@ return {
   priority = 49,
   opts = {
     preview = {
-      filetypes = { "markdown", "Avante", "codecompanion" },
+      filetypes = { "markdown" },
       ignore_buftypes = {},
       icon_provider = "mini",
       modes = { "n", "no", "c", "i" },
