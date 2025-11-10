@@ -9,7 +9,14 @@ return {
       preset = "enter",
     },
     cmdline = {
-      keymap = { ['<Tab>'] = { 'show', 'accept' } },
+      keymap = {
+        ['<Tab>'] = { 'select_next', 'fallback' },
+        ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        ['<Down>'] = { 'select_next', 'fallback' },
+        ['<Up>'] = { 'select_prev', 'fallback' },
+        ['<CR>'] = { 'accept', 'fallback' },
+        ['<C-e>'] = { 'cancel', 'fallback' },
+      },
       completion = { menu = { auto_show = true } },
     },
     completion = {
