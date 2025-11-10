@@ -8,13 +8,13 @@ return {
     keymap = {
       preset = "enter",
     },
+    cmdline = {
+      keymap = { ['<Tab>'] = { 'show', 'accept' } },
+      completion = { menu = { auto_show = true } },
+    },
     completion = {
-      accept = { auto_brackets = { enabled = true } },
       list = {
         selection = { preselect = false, auto_insert = false },
-      },
-      trigger = {
-        show_on_keyword = true
       },
       menu = {
         draw = {
