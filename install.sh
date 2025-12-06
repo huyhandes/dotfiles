@@ -316,7 +316,6 @@ Install dotfiles by creating symlinks and running setup commands.
 
 COMMANDS:
     (none)          Install dotfiles configuration (default)
-    tools [ARGS]    Install development tools (see tools --help)
 
 OPTIONS:
     -h, --help      Show this help message
@@ -331,24 +330,14 @@ This script will:
 5. Update git submodules
 6. Build bat cache
 
-For tool management:
-    $0 tools --help         Show tools help
-    $0 tools                Install all development tools
-    $0 tools go neovim      Install specific tools
-    $0 tools --dry-run      Simulate tool installation
-    $0 tools --list         List available tools
-
 Examples:
     $0                      Install dotfiles configuration
     $0 --dry-run           Simulate dotfiles installation
-    $0 tools --dry-run go  Simulate installing specific tool
 
 EOF
 }
 
 # Parse command line arguments
-COMMAND=""
-REMAINING_ARGS=()
 DRY_RUN=false
 
 while [[ $# -gt 0 ]]; do
@@ -365,155 +354,13 @@ while [[ $# -gt 0 ]]; do
             DRY_RUN=true
             shift
             ;;
-        tools)
-            COMMAND="tools"
-            shift
-            REMAINING_ARGS=("$@")
-            break
-            ;;
-        -*)
-            log_error "Unknown option: $1"
-            show_help
-            exit 1
-            ;;
         *)
-            log_error "Unknown command: $1"
+            log_error "Unknown option: $1"
             show_help
             exit 1
             ;;
     esac
 done
 
-# Tools installation functions
-install_tools() {
-    local tools_to_install=("$@")
-    local available_tools
-    local force=false
-    local dry_run=false
-    local list_only=false
-    
-    # Parse arguments
-    local tool_args=()
-    for arg in "${tools_to_install[@]}"; do
-        case "$arg" in
-            --force|-f)
-                force=true
-                ;;
-            --dry-run|-d)
-                dry_run=true
-                ;;
-            --list|-l)
-                list_only=true
-                ;;
-            --help|-h)
-                show_tools_help
-                return 0
-                ;;
-            *)
-                tool_args+=("$arg")
-                ;;
-        esac
-    done
-    
-    # Get available tools from scripts directory
-    available_tools=()
-    for script in "$BASEDIR/scripts"/*.sh; do
-        local script_name=$(basename "$script" .sh)
-        # Skip install-tools.sh (legacy)
-        if [[ "$script_name" != "install-tools" ]]; then
-            available_tools+=("$script_name")
-        fi
-    done
-    
-    if [[ "$list_only" == "true" ]]; then
-        log_info "Available tools:"
-        for tool in "${available_tools[@]}"; do
-            echo "  $tool"
-        done
-        return 0
-    fi
-    
-    # If no specific tools requested, install all
-    if [[ ${#tool_args[@]} -eq 0 ]]; then
-        tool_args=("${available_tools[@]}")
-    fi
-    
-    if [[ "$dry_run" == "true" ]]; then
-        log_info "Dry-run mode: Would install tools: ${tool_args[*]}"
-        return 0
-    fi
-    
-    log_info "Installing tools: ${tool_args[*]}"
-    
-    local failed_tools=()
-    for tool in "${tool_args[@]}"; do
-        local script_path="$BASEDIR/scripts/$tool.sh"
-        
-        if [[ ! -f "$script_path" ]]; then
-            log_warning "Unknown tool: $tool (script not found: $script_path)"
-            continue
-        fi
-        
-        if [[ ! -x "$script_path" ]]; then
-            log_warning "Tool script not executable: $script_path"
-            continue
-        fi
-        
-        log_info "Running $tool installation..."
-        
-        if [[ "$force" == "true" ]]; then
-            if ! "$script_path" --force; then
-                failed_tools+=("$tool")
-            fi
-        else
-            if ! "$script_path"; then
-                failed_tools+=("$tool")
-            fi
-        fi
-    done
-    
-    if [[ ${#failed_tools[@]} -gt 0 ]]; then
-        log_error "Failed to install: ${failed_tools[*]}"
-        return 1
-    fi
-    
-    log_success "All tools installed successfully!"
-}
-
-show_tools_help() {
-    cat << EOF
-Usage: $0 tools [OPTIONS] [TOOLS...]
-
-Install development tools using individual installation scripts.
-
-OPTIONS:
-    -h, --help      Show this help message
-    -l, --list      List available tools
-    -f, --force     Force reinstall even if already installed
-    -d, --dry-run   Simulate installation without making changes
-    
-TOOLS:
-    Space-separated list of tools to install.
-    If no tools specified, installs all available tools.
-
-Examples:
-    $0 tools                    # Install all tools
-    $0 tools go neovim         # Install specific tools
-    $0 tools --force go        # Force reinstall go
-    $0 tools --dry-run         # Simulate installation of all tools
-    $0 tools --list            # List available tools
-
-EOF
-}
-
-# Execute command
-case "$COMMAND" in
-    tools)
-        # Run simplified tools installer
-        install_tools "${REMAINING_ARGS[@]}"
-        ;;
-    "")
-        # Default: run main dotfiles installation
-        main
-        ;;
-esac
+# Execute main installation
+main

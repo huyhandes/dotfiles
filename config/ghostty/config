@@ -39,3 +39,6 @@ keybind = cmd+six=goto_tab:6
 keybind = alt+left=text:\x1b\x62
 keybind = alt+right=text:\x1b\x66
 keybind = shift+enter=text:\n
+
+# Bell
+bell-features = no-title, no-system
