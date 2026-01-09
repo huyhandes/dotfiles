@@ -42,3 +42,7 @@ keybind = shift+enter=text:\n
 
 # Bell
 bell-features = no-title, no-system
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
