@@ -17,7 +17,15 @@ return {
         ['<CR>'] = { 'accept', 'fallback' },
         ['<C-e>'] = { 'cancel', 'fallback' },
       },
-      completion = { menu = { auto_show = true } },
+      completion = {
+        menu = { auto_show = true },
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = false
+          }
+        }
+      },
     },
     completion = {
       list = {
