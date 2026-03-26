@@ -15,15 +15,10 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree -L 2 {}'"
 # XDG & Directory Configuration
 export XDG_CONFIG_HOME=$HOME/.config
 export ZSH_CACHE_DIR=$HOME/.local/share/zsh
-export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 
 # PATH & Shell Completions
 export PATH=$HOME/.local/bin:$PATH
 export FPATH=$HOME/.local/share/zsh/completions:$FPATH
-
-# Programming Languages
-# Python/Rye
-export RYE_HOME=$HOME/opt/rye
 
 # Rust
 export CARGO_HOME=$HOME/opt/cargo

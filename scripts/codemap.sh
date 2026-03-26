@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-CODEMAP_VERSION="3.0.3"
+CODEMAP_VERSION="4.0.7"
 
 install_codemap() {
     local platform
