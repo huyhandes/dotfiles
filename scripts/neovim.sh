@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-NEOVIM_VERSION="v0.11.4"
+NEOVIM_VERSION="v0.12.1"
 
 install_neovim() {
     local platform
