@@ -1,0 +1,22 @@
+require("tree-sitter-manager").setup({
+  ensure_installed = {
+    "markdown_inline",
+    "markdown",
+    "query",
+    "vimdoc",
+    "vim",
+    "lua",
+    "diff",
+    "c",
+    "go",
+    "toml",
+    "csv",
+    "json",
+    "yaml",
+    "sql",
+    "scala",
+    "python",
+  },
+  border = "rounded",
+  auto_install = true,
+})
