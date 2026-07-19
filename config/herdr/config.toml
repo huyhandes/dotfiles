@@ -1,0 +1,25 @@
+onboarding = false
+
+[terminal]
+shell_mode = "auto"
+
+[keys]
+prefix = "ctrl+a"
+workspace_picker = "prefix+w" 
+
+[theme]
+name = "catppuccin"
+
+[ui.toast]
+delivery = "terminal"
+
+[ui.sound]
+enabled = true
+
+[advanced]
+# Honors the intent of `set -g history-limit 100000` (bytes, not lines).
+scrollback_limit_bytes = 52428800
+
+[experimental]
+# Off by default; pane output can contain secrets. Preserved from prior config.
+pane_history = false

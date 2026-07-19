@@ -4,3 +4,5 @@ macos/Brewfile.lock.json
 **/.log
 .DS_Store
 .log
+config/herdr/*.json
+config/herdr/*.log

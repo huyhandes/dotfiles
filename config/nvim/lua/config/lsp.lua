@@ -14,23 +14,13 @@ vim.lsp.config("gopls", {
     },
   },
 })
-vim.lsp.config("basedpyright", {
-  settings = {
-    basedpyright = {
-      analysis = {
-        autoImportCompletions = true,
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-      },
-    },
-  },
-})
+vim.lsp.config("pyrefly", {})
 
 vim.lsp.enable({
   "lua_ls",
   "docker_compose_language_service",
   "dockerls",
-  "basedpyright",
+  "pyrefly",
   "gopls",
   "ruff",
 })

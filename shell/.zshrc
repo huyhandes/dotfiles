@@ -31,3 +31,7 @@ fsh-alias XDG:catppuccin-macchiato -q
 
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/huybui/.local/bin:$PATH"
