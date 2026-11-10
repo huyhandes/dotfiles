@@ -17,6 +17,7 @@ vim.pack.add({
   { src = "https://github.com/catgoose/nvim-colorizer.lua", name = "nvim-colorizer" },
   { src = "https://github.com/folke/lazydev.nvim" },
   { src = "https://github.com/alexghergh/nvim-tmux-navigation" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
 require("config.colorscheme")
@@ -45,3 +46,11 @@ vim.api.nvim_create_user_command("PackClean", function()
     vim.pack.del(inactive)
   end
 end, { desc = "Remove inactive plugins" })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.breakindent = true
+  end,
+})

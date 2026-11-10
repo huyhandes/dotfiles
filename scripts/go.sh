@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-GO_VERSION="1.25.3"
+GO_VERSION="1.26.5"
 
 install_go() {
     local platform

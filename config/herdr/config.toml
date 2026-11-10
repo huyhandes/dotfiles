@@ -10,6 +10,10 @@ workspace_picker = "prefix+w"
 [theme]
 name = "catppuccin"
 
+[ui]
+copy_on_select = true
+
+status_indicators = "symbols"
 [ui.toast]
 delivery = "terminal"
 

@@ -4,7 +4,9 @@ require("markview").setup({
     ignore_buftypes = {},
     icon_provider = "mini",
     modes = { "n", "no", "c", "i" },
-    hybrid_modes = { "i", "n" },
-    linewise_hybrid_mode = true,
+    hybrid_modes = { "n", "v", "V", "i" },
+  },
+  renderers = {
+    markdown_table = function(buffer, item) require("markview-smart-tables").render(buffer, item) end,
   },
 })
