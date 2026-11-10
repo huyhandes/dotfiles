@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-EZA_VERSION="0.23.4"
+EZA_VERSION="0.23.5"
 
 install_eza() {
     local platform

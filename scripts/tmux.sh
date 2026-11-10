@@ -25,7 +25,7 @@ DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
 source "$SCRIPT_DIR/../shell/.functions"
 
 # Configuration
-TMUX_VERSION="${TMUX_VERSION:-3.5a}"
+TMUX_VERSION="${TMUX_VERSION:-3.8}"
 DOCKERFILE="$DOTFILES_DIR/build/Dockerfile.tmux"
 OUTPUT_DIR="$DOTFILES_DIR/dist"
 INSTALL_DIR="$HOME/.local/bin"

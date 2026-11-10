@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-RG_VERSION="15.0.0"
+RG_VERSION="15.2.0"
 
 install_ripgrep() {
     local platform

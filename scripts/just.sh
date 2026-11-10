@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-JUST_VERSION="1.46.0"
+JUST_VERSION="1.59.0"
 
 install_just() {
     local platform

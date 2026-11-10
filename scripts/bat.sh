@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-BAT_VERSION="0.25.0"
+BAT_VERSION="0.26.1"
 
 install_bat() {
     local platform

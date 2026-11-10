@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-NEOVIM_VERSION="v0.12.1"
+NEOVIM_VERSION="v0.12.6"
 
 install_neovim() {
     local platform
@@ -31,7 +31,7 @@ install_neovim() {
             ;;
         linux-amd64)
             url="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-linux-x86_64.tar.gz"
-	    install_dir="$HOME/.local/bin/nvim-linux-x86_64"
+            install_dir="$HOME/.local/bin/nvim-linux-x86_64"
             symlink_source="$install_dir/bin/nvim"
             ;;
         linux-arm64)

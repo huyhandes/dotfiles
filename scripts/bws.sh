@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-BWS_VERSION="1.0.0"
+BWS_VERSION="2.1.0"
 
 install_bws() {
     local platform

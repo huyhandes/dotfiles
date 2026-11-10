@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-FZF_VERSION="0.66.0"
+FZF_VERSION="0.75.0"
 
 install_fzf() {
     local platform

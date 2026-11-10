@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-FD_VERSION="10.3.0"
+FD_VERSION="10.5.2"
 
 install_fd() {
     local platform

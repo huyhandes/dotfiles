@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-YAZI_VERSION="25.5.31"
+YAZI_VERSION="26.9.1"
 
 install_yazi() {
     local platform

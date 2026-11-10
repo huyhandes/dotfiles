@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-KUBECTX_VERSION="0.9.5"
+KUBECTX_VERSION="0.11.0"
 INSTALL_DIR="$HOME/.local/bin"
 RELEASE_URL="https://github.com/ahmetb/kubectx/releases/download/v${KUBECTX_VERSION}"
 COMPLETION_URL="https://raw.githubusercontent.com/ahmetb/kubectx/master/completion"

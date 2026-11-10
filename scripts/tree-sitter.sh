@@ -2,7 +2,7 @@
 
 source "$(dirname "$0")/../shell/.functions"
 
-TREE_SITTER_VERSION="0.26.11"
+TREE_SITTER_VERSION="0.27.2"
 
 install_tree_sitter() {
     local platform

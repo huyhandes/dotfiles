@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-KUBECTL_VERSION="1.34.1"
+KUBECTL_VERSION="1.37.2"
 
 install_kubectl() {
     local platform

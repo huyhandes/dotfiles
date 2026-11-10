@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-BW_VERSION="2025.11.0"
+BW_VERSION="2026.10.1"
 
 install_bw() {
     local platform

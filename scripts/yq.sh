@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-YQ_VERSION="4.48.1"
+YQ_VERSION="4.54.3"
 
 install_yq() {
     local platform

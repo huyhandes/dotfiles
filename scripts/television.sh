@@ -3,7 +3,7 @@
 # Source common functions
 source "$(dirname "$0")/../shell/.functions"
 
-TELEVISION_VERSION="0.15.6"
+TELEVISION_VERSION="0.15.9"
 
 install_television() {
     local platform
